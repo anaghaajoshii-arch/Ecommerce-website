@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body {
+    padding-top: 80px;
+    /* space for fixed-top navbar */
+}
+
+/* main background */
+.back1 {
+    background-color: #f9e3ef;
+    min-height: 100vh;
+}
+
+/* container spacing below navbar */
+.main-container {
+    margin-top: 20px;
+}
+
+/* navbar cart logo */
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+/* hero round logo */
+.hero-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* headings */
+.head1 {
+    font-family: "Sans-Serif";
+    font-size: 42px;
+}
+
+.head2 {
+    font-family: "Sans-Serif";
+    font-size: 30px;
+}
+
+/* cards */
+.aboutcard {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 40px;
+    border: 2px solid #ea9dc7;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ensure product cards stretch nicely in columns */
+.product-card {
+    height: 100%;
+}
+
+/* product image */
+.prod {
+    height: 170px;
+    width: 140px;
+    object-fit: cover;
+}
+
+/* product text */
+.prodpara {
+    font-size: 20px;
+    text-align: center;
+    color: maroon;
+}
+
+/* order card */
+.o-card {
+    background-color: #ea9dc7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 16px;
+}
+
+/* order list rounded bottom */
+.list-group {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.o-head {
+    font-size: 30px;
+    font-family: "Sans-Serif";
+}
+
+/* optional: smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
