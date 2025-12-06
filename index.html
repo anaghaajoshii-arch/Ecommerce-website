@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ana's Blossom House</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="web.css">
+
+    <!-- jQuery, Popper, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="back1">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#sectionmain"></a>
+
+        <a class="nav-link mr-auto" href="#sectionorder">
+            <img src="https://i.pinimg.com/1200x/f2/12/4e/f2124e83e9fd8ddeb31ac7cdb59f544c.jpg" class="logo" />
+            <span id="cartCount" class="badge badge-success">0</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" href="#sectionmain">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-link" href="#sectionabout">About</a>
+                <a class="nav-link" href="#sectionproduct">Products</a>
+                <a class="nav-link" href="#sectionorder">Order</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Hero + login -->
+            <div class="col-12 mb-4">
+                <section id="sectionmain" class="d-flex flex-column justify-content-center text-center">
+                    <div class="d-flex flex-row justify-content-center align-items-center mb-3">
+                        <img src="logo.jpg" class="img-fluid rounded-circle shadow hero-logo"
+                            alt="Ana's Blossom House Logo">
+                        <div class="ml-3 text-left">
+                            <h1 class="head1 mb-0">Ana's</h1>
+                            <h2 class="head2 mt-1">Blossom House</h2>
+                        </div>
+                    </div>
+
+                    <form id="loginForm" onsubmit="return false;">
+                        <label for="username">Username:</label><br>
+                        <input type="text" id="username" name="username"><br>
+                        <label for="pwd">Password:</label><br>
+                        <input type="password" id="pwd" name="pwd"><br><br>
+                        <button type="button" id="loginBtn" class="btn btn-primary">Login</button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- About -->
+            <div class="col-12 mb-3 mt-5">
+                <section id="sectionabout">
+                    <h1 class="head2 text-center mb-3">About us</h1>
+                    <div class="aboutcard shadow">
+                        <p class="para mb-0">
+                            Heyyaa! I’m Anagha — welcome to Ana’s Flower Boutique.
+                            Here, we don’t just sell flowers — we handcraft them with love and grace.
+                            A bouquet is more than a gift — it’s a reminder that you care, that you love,
+                            and that you want to bring a smile to someone’s face.
+                            So go ahead — show some love, and let us help you make someone’s day bloom beautifully! 🌷
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Products title -->
+            <div class="col-12 mt-5">
+                <section id="sectionproduct">
+                    <h1 class="text-center">PRODUCTS</h1>
+                </section>
+            </div>
+
+            <!-- Product cards -->
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/1200x/0b/04/c7/0b04c75706da1bdc012fbfdae80bf9c0.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Red Roses</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1200</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Red Roses" data-price="1200">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/1200x/96/e4/c6/96e4c6b385c51c38363f74aa9d47c628.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Tulips</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹3000</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Tulips" data-price="3000">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/736x/09/d4/a4/09d4a4207fc5c4306f12352480ae1b3b.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Lilies</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1799</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Lilies" data-price="1799">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/736x/2f/de/37/2fde37659a617ebb9274ce49fe6a3a2c.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Sunflower</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1099</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Sunflower" data-price="1099">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/736x/a3/69/79/a36979a77b29b064c14670276eeaf213.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Mixed Flowers</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1899</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Mixed Flowers" data-price="1899">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/736x/87/fb/db/87fbdbf10f3ce88c7ac34e696026c933.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Orchid</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1499</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Orchid" data-price="1499">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/736x/94/16/90/9416900db3a642333a71b72ac628a860.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Carnation</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1599</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Carnation" data-price="1599">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/1200x/25/95/63/2595634cba16d69146d84821f07f93db.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Peony</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1799</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Peony" data-price="1799">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="aboutcard product-card shadow p-3">
+                    <img src="https://i.pinimg.com/1200x/39/36/1d/39361daf70233f11749bcfb75cb9c9df.jpg"
+                        class="prod mb-2" />
+                    <p class="prodpara mb-1"><strong>Baby breath</strong></p>
+                    <p class="prodpara text-primary mb-2">Price: ₹1099</p>
+                    <button class="btn btn-success btn-sm addToCart" data-name="Baby breath" data-price="1099">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Order section -->
+            <div class="col-12 mt-5">
+                <section id="sectionorder" class="o-card">
+                    <h1 class="text-white text-center o-head">Order Details</h1>
+                    <ul id="orderList" class="list-group mb-0"></ul>
+                </section>
+            </div>
+
+            <!-- Total + checkout -->
+            <div class="col-12 mt-3">
+                <h4 class="text-dark">Total: ₹ <span id="totalPrice">0</span></h4>
+                <div class="d-flex flex-row justify-content-center">
+                    <button id="checkoutBtn" class="btn btn-success mt-2">Make Payment</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Payment modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Confirm Purchase</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="modalProductName" class="mb-1"></p>
+                    <p id="modalProductPrice" class="mb-3"></p>
+
+                    <div>
+                        <button id="payNowBtn" class="btn btn-success">Make Payment</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart JS -->
+    <script>
+        let cart = [];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadCart();
+            setupAddToCart();
+            updateCart();
+
+            document.getElementById("checkoutBtn").addEventListener("click", function () {
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                    return;
+                }
+
+                alert("Thank you for shopping 🌸");
+
+                cart = [];
+                saveCart();
+                updateCart();
+            });
+
+            document.getElementById("orderList").addEventListener("click", function (e) {
+                if (e.target.tagName === "BUTTON" && e.target.dataset.index !== undefined) {
+                    const index = e.target.dataset.index;
+                    cart.splice(index, 1);
+                    saveCart();
+                    updateCart();
+                    alert("Item removed!");
+                }
+            });
+        });
+
+        function setupAddToCart() {
+            const buttons = document.querySelectorAll(".addToCart");
+
+            buttons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    const name = this.dataset.name;
+                    const price = Number(this.dataset.price);
+
+                    cart.push({ name, price });
+                    saveCart();
+                    updateCart();
+                    alert("Added to cart 🌸");
+                });
+            });
+        }
+
+        function updateCart() {
+            const cartCountEl = document.getElementById("cartCount");
+            const listEl = document.getElementById("orderList");
+            const totalEl = document.getElementById("totalPrice");
+
+            cartCountEl.innerText = cart.length;
+
+            listEl.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between";
+
+                li.innerHTML = `
+${item.name} - ₹${item.price}
+<button class="btn btn-danger btn-sm" data-index="${index}">Remove</button>
+`;
+                listEl.appendChild(li);
+            });
+
+            totalEl.innerText = total;
+        }
+
+        function saveCart() {
+            localStorage.setItem("cartData", JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const saved = localStorage.getItem("cartData");
+            if (saved) {
+                cart = JSON.parse(saved);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
