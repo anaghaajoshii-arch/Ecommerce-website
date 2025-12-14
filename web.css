@@ -2,34 +2,28 @@
 
 body {
     padding-top: 80px;
-    /* space for fixed-top navbar */
 }
 
-/* main background */
 .back1 {
     background-color: #f9e3ef;
     min-height: 100vh;
 }
 
-/* container spacing below navbar */
 .main-container {
     margin-top: 20px;
 }
 
-/* navbar cart logo */
 .logo {
     height: 50px;
     width: 50px;
 }
 
-/* hero round logo */
 .hero-logo {
     width: 180px;
     height: 180px;
     object-fit: cover;
 }
 
-/* headings */
 .head1 {
     font-family: "Sans-Serif";
     font-size: 42px;
@@ -40,7 +34,6 @@ body {
     font-size: 30px;
 }
 
-/* cards */
 .aboutcard {
     background-color: white;
     width: 100%;
@@ -57,26 +50,22 @@ body {
     height: 100%;
 }
 
-/* ensure product cards stretch nicely in columns */
 .product-card {
     height: 100%;
 }
 
-/* product image */
 .prod {
     height: 170px;
     width: 140px;
     object-fit: cover;
 }
 
-/* product text */
 .prodpara {
     font-size: 20px;
     text-align: center;
     color: maroon;
 }
 
-/* order card */
 .o-card {
     background-color: #ea9dc7;
     border-top-left-radius: 10px;
@@ -84,7 +73,6 @@ body {
     padding: 16px;
 }
 
-/* order list rounded bottom */
 .list-group {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -95,7 +83,46 @@ body {
     font-family: "Sans-Serif";
 }
 
-/* optional: smooth scroll */
+.forme {
+    font-family: "Sans-serif";
+    font-size: 20px;
+}
+
+#sectionmain {
+    background-image: url("https://i.pinimg.com/1200x/49/4c/33/494c3300f4451fd7700a18a79681ec5b.jpg");
+    background-size: cover;
+}
+
+.qr-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.qr-card {
+    background: #fff;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
 html {
     scroll-behavior: smooth;
 }

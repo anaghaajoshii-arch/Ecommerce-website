@@ -5,14 +5,9 @@
     <meta charset="UTF-8">
     <title>Ana's Blossom House</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="web.css">
-
-    <!-- jQuery, Popper, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -54,8 +49,6 @@
 
     <div class="container main-container">
         <div class="row">
-
-            <!-- Hero + login -->
             <div class="col-12 mb-4">
                 <section id="sectionmain" class="d-flex flex-column justify-content-center text-center">
                     <div class="d-flex flex-row justify-content-center align-items-center mb-3">
@@ -67,17 +60,28 @@
                         </div>
                     </div>
 
-                    <form id="loginForm" onsubmit="return false;">
-                        <label for="username">Username:</label><br>
-                        <input type="text" id="username" name="username"><br>
-                        <label for="pwd">Password:</label><br>
-                        <input type="password" id="pwd" name="pwd"><br><br>
-                        <button type="button" id="loginBtn" class="btn btn-primary">Login</button>
-                    </form>
+                    <div id="loginBox">
+                        <form id="loginForm" onsubmit="return false;">
+                            <label class="forme">Username:</label>
+                            <input type="text" id="username"><br>
+
+                            <label class="forme">Password:</label>
+                            <input type="password" id="pwd"><br><br>
+
+                            <button type="button" id="loginBtn" class="btn btn-primary">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+
+                    <div id="loginMsg" style="display:none;">
+                        <h4 class="text-success">Login Successful 🌷</h4>
+                        <p>Welcome to Ana’s Blossom House</p>
+                    </div>
+
                 </section>
             </div>
 
-            <!-- About -->
             <div class="col-12 mb-3 mt-5">
                 <section id="sectionabout">
                     <h1 class="head2 text-center mb-3">About us</h1>
@@ -93,14 +97,12 @@
                 </section>
             </div>
 
-            <!-- Products title -->
             <div class="col-12 mt-5">
                 <section id="sectionproduct">
                     <h1 class="text-center">PRODUCTS</h1>
                 </section>
             </div>
 
-            <!-- Product cards -->
             <div class="col-12 col-md-6 col-lg-4 mb-3">
                 <div class="aboutcard product-card shadow p-3">
                     <img src="https://i.pinimg.com/1200x/0b/04/c7/0b04c75706da1bdc012fbfdae80bf9c0.jpg"
@@ -209,17 +211,15 @@
                 </div>
             </div>
 
-            <!-- Order section -->
             <div class="col-12 mt-5">
                 <section id="sectionorder" class="o-card">
                     <h1 class="text-white text-center o-head">Order Details</h1>
                     <ul id="orderList" class="list-group mb-0"></ul>
+                    <h4 class="text-white">Total: ₹ <span id="totalPrice">0</span></h4>
                 </section>
             </div>
 
-            <!-- Total + checkout -->
             <div class="col-12 mt-3">
-                <h4 class="text-dark">Total: ₹ <span id="totalPrice">0</span></h4>
                 <div class="d-flex flex-row justify-content-center">
                     <button id="checkoutBtn" class="btn btn-success mt-2">Make Payment</button>
                 </div>
@@ -228,115 +228,52 @@
         </div>
     </div>
 
-    <!-- Payment modal -->
-    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Confirm Purchase</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+    <div class="col-12">
+        <div id="detailsPopup" class="qr-overlay">
+            <div class="qr-card">
+                <span class="close-btn" onclick="closeDetails()">×</span>
+
+                <h4 class="mb-3" id="qrTitle">Delivery Details 📦</h4>
+
+                <div id="deliveryForm">
+                    <input type="text" id="custName" class="form-control mb-2" placeholder="Your Name">
+                    <input type="text" id="custPhone" class="form-control mb-2" placeholder="Phone Number">
+                    <textarea id="custAddress" class="form-control mb-3" rows="3"
+                        placeholder="Delivery Address"></textarea>
+
+                    <button class="btn btn-primary" onclick="openQR()">
+                        Proceed to Pay
                     </button>
                 </div>
-                <div class="modal-body text-center">
-                    <p id="modalProductName" class="mb-1"></p>
-                    <p id="modalProductPrice" class="mb-3"></p>
 
-                    <div>
-                        <button id="payNowBtn" class="btn btn-success">Make Payment</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-                    </div>
+                <div id="qrArea" style="display:none; text-align:center;">
+                    <img src="qrweb.png" alt="Payment QR" style="max-width: 200px; margin-bottom:10px;">
+                    <p>Scan this QR to complete the payment.</p>
+                    <button class="btn btn-primary" id="donePaymentBtn">Done</button>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <!-- Cart JS -->
-    <script>
-        let cart = [];
 
-        document.addEventListener("DOMContentLoaded", () => {
-            loadCart();
-            setupAddToCart();
-            updateCart();
+    <div class="container mt-5 mb-5">
+        <div class="aboutcard shadow">
+            <h3 class="mb-3">We value your feedback 🌸</h3>
 
-            document.getElementById("checkoutBtn").addEventListener("click", function () {
-                if (cart.length === 0) {
-                    alert("Your cart is empty!");
-                    return;
-                }
+            <form action="http://localhost:3000/feedback" method="POST">
+                <input type="text" name="name" class="form-control mb-2" placeholder="Your Name" required>
+                <textarea name="message" class="form-control mb-3" rows="4" placeholder="Write your feedback here..."
+                    required></textarea>
+                <button class="btn btn-primary" type="submit">Submit Feedback</button>
+            </form>
 
-                alert("Thank you for shopping 🌸");
+            <p id="fbStatus" class="mt-3 text-success"></p>
+        </div>
+    </div>
 
-                cart = [];
-                saveCart();
-                updateCart();
-            });
 
-            document.getElementById("orderList").addEventListener("click", function (e) {
-                if (e.target.tagName === "BUTTON" && e.target.dataset.index !== undefined) {
-                    const index = e.target.dataset.index;
-                    cart.splice(index, 1);
-                    saveCart();
-                    updateCart();
-                    alert("Item removed!");
-                }
-            });
-        });
-
-        function setupAddToCart() {
-            const buttons = document.querySelectorAll(".addToCart");
-
-            buttons.forEach(btn => {
-                btn.addEventListener("click", function () {
-                    const name = this.dataset.name;
-                    const price = Number(this.dataset.price);
-
-                    cart.push({ name, price });
-                    saveCart();
-                    updateCart();
-                    alert("Added to cart 🌸");
-                });
-            });
-        }
-
-        function updateCart() {
-            const cartCountEl = document.getElementById("cartCount");
-            const listEl = document.getElementById("orderList");
-            const totalEl = document.getElementById("totalPrice");
-
-            cartCountEl.innerText = cart.length;
-
-            listEl.innerHTML = "";
-            let total = 0;
-
-            cart.forEach((item, index) => {
-                total += item.price;
-
-                const li = document.createElement("li");
-                li.className = "list-group-item d-flex justify-content-between";
-
-                li.innerHTML = `
-${item.name} - ₹${item.price}
-<button class="btn btn-danger btn-sm" data-index="${index}">Remove</button>
-`;
-                listEl.appendChild(li);
-            });
-
-            totalEl.innerText = total;
-        }
-
-        function saveCart() {
-            localStorage.setItem("cartData", JSON.stringify(cart));
-        }
-
-        function loadCart() {
-            const saved = localStorage.getItem("cartData");
-            if (saved) {
-                cart = JSON.parse(saved);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
