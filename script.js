@@ -35,12 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loginBtn").addEventListener("click", () => {
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("pwd").value.trim();
-
         if (!username || !password) {
             alert("Please enter username & password");
             return;
         }
-
+        isLoggedin = true;
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("loginMsg").style.display = "block";
     });
@@ -78,6 +77,8 @@ function updateCart() {
     const listEl = document.getElementById("orderList");
     const totalEl = document.getElementById("totalPrice");
 
+    document.getElementById("discountMsg").innerText = "";
+
     cartCountEl.innerText = cart.length;
     listEl.innerHTML = "";
 
@@ -95,6 +96,13 @@ function updateCart() {
       </li>
     `;
     });
+
+    if (total > 5000) {
+        total = total - (0.2 * total);
+        document.getElementById("discountMsg").innerText =
+            "20% discount applied 🎉";
+
+    }
 
     totalEl.innerText = total;
 }
